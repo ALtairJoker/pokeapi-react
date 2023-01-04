@@ -8,6 +8,13 @@
   text-decoration: none;
   text-shadow: rgb(255, 0, 0) 1px 0 10px;
 }
+.activo:hover {
+  color: red;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: rgb(255, 0, 0) 1px 0 10px;
+}
+
 
 .inactivo {
   color: aliceblue;
