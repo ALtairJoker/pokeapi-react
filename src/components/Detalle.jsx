@@ -16,9 +16,8 @@ export default function Detalle() {
     try {
       const response = await fetch(URL + nombre);
       const data = await response.json();
-      setFoto(data.sprites.other.home.front_default);
+      setFoto(data.sprites.other["official-artwork"].front_default);
       setStats(data.stats);
-      console.log(stats);
     } catch (error) {
       alert(error);
     }
