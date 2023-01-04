@@ -1,24 +1,30 @@
-import logo from './logo.svg';
+import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navegacion from "./components/Navbar";
+import context from "./context";
+import Home from "./views/Home";
+import Pokemones from "./views/Pokemones";
+import { useState } from "react";
+
 import './App.css';
+import Detalle from "./components/Detalle";
 
 function App() {
+  const [pokemones, setPokemones] = useState([]);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <context.Provider value={{pokemones, setPokemones}}>
+      <Router>
+        <Navegacion/>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/pokemones" element={<Pokemones />} />
+          <Route path="/pokemones/:nombre" element={<Detalle />} />
+        </Routes>
+      </Router>
+    </context.Provider>
   );
 }
 
